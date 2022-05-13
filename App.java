@@ -2,6 +2,13 @@ package com.pantavanij;
 
 import java.util.Arrays;
 
+/*
+Solve these problem with any IDE, code editor you like within 15 minutes. Open environment. Use any tools possible.
+    1. Sort Array of numbers [1,5,2,2,5,4,7,9] expected output [1,2,2,4,5,5,7,9]
+    2. Sum Amount of array
+    3. Median value of the Array Median = middle position of the sorted array, if length is even number, middle means the average of middle 2 number
+      */
+
 public class App {
     public static void main(String[] args) {
         int[] givenNumbers = new int[]{1, 5, 2, 2, 5, 4, 7, 9};
@@ -17,18 +24,24 @@ public class App {
 
     public static int[] sorted(int[] unsorted) {
         // implement logic here
-        return new int[]{
-                1, 2, 2, 4, 5, 5, 7, 9
-        };
+        Arrays.sort(unsorted);
+        return unsorted;
     }
 
     public static int summation(int[] numbers) {
         // implement logic here
-        return 35;
+        return Arrays.stream(numbers).sum();
     }
 
     public static double median(int[] numbers) {
         // implement logic here
-        return 4.5d;
+        Arrays.sort(numbers);
+        int length = numbers.length;
+        int mid = length/2;
+        if(length%2 == 0) { // even
+          return numbers[mid]/numbers[mid+1];
+        } else {
+          return numbers[mid];
+        }
     }
 }
